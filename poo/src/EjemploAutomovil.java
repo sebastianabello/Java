@@ -1,32 +1,45 @@
+import java.util.Date;
+
 public class EjemploAutomovil {
     public static void main(String[] args) {
 
-        Automovil subaru = new Automovil("subaru","Impreza");
-        subaru.setCilindrada(2.0);
-        subaru.setColor("Blanco");
+        Motor motorSubaru = new Motor(2.0, TipoMotor.BENCINA);
+        Automovil subaru = new Automovil("Subaru", "Impreza");
+        subaru.setMotor(motorSubaru);
+        subaru.setEstanque(new Estanque());
+        subaru.setColor(Color.BLANCO);
 
-        Automovil mazda = new Automovil("mazda","mazda");
-        mazda.setCilindrada(3.0);
-        mazda.setColor("Rojo");
+        Motor motorMazda = new Motor(3.0, TipoMotor.DIESEL);
+        Automovil mazda = new Automovil("Mazda", "BT-50", Color.ROJO, motorMazda);
+        mazda.setEstanque(new Estanque(45));
+        System.out.println("mazda.fabricante = " + mazda.getFabricante());
 
-        Automovil toyota = new Automovil();
+        Automovil nissan = new Automovil("Nissan", "Navara", Color.GRIS,
+                new Motor(4.0, TipoMotor.DIESEL), new Estanque(50));
 
+        Automovil nissan2 = new Automovil("Nissan", "Navara", Color.GRIS,
+                new Motor(3.5, TipoMotor.BENCINA), new Estanque(50));
+
+        Automovil auto = new Automovil();
+        Date fecha = new Date();
+        System.out.println("son iguales? " + (nissan == nissan2));
+        System.out.println("son iguales con equals? " + (nissan.equals(nissan2)));
         System.out.println(subaru.verDetalle());
         System.out.println(mazda.verDetalle());
+        System.out.println(nissan.verDetalle());
+
+        System.out.println(auto.equals(fecha));
+        System.out.println(nissan);
+        System.out.println(nissan.toString());
+
         System.out.println(subaru.acelerar(3000));
         System.out.println(subaru.frenar());
 
         System.out.println(mazda.acelerarFrenar(4000));
 
-        System.out.println("Kilometro por litro " + subaru.calcularConsumo(300, 0.6f));
-        System.out.println("Kilometro por litro " + subaru.calcularConsumo(300, 60));
+        System.out.println("Kilómetros por litro: " + subaru.calcularConsumo(300, 0.6f));
 
-        //Principio de ocultacion
-        //Private, public, protected
-
-
-        //Encapsulamiento
-        //Es la apstraccion que tiene el objeto respecto a sus metodos
-        //por ejemplo no me intereza como se fabrica un televisor solo lo compro y ya, solo se las cosas basicas que debo saber
+        System.out.println("Kilómetros por litro: " + subaru.calcularConsumo(300, 60));
+        System.out.println("Kilómetros por litro: " + nissan.calcularConsumo(300, 60));
     }
 }
