@@ -15,7 +15,7 @@ public class Motor {
         return cilindrada;
     }
 
-    public void setCilindrada(double cilindradaa) {
+    public void setCilindrada(double cilindrada) {
         this.cilindrada = cilindrada;
     }
 
