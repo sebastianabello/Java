@@ -8,13 +8,14 @@ public class Motor {
     public Motor(double cilindrada, TipoMotor tipo) {
         this.cilindrada = cilindrada;
         this.tipo = tipo;
+
     }
 
     public double getCilindrada() {
         return cilindrada;
     }
 
-    public void setCilindrada(double cilindrada) {
+    public void setCilindrada(double cilindradaa) {
         this.cilindrada = cilindrada;
     }
 
