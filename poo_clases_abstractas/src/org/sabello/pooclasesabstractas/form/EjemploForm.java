@@ -7,6 +7,7 @@ import org.sabello.pooclasesabstractas.form.elementos.TextareaForm;
 import org.sabello.pooclasesabstractas.form.elementos.select.Opcion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EjemploForm {
@@ -21,11 +22,11 @@ public class EjemploForm {
 
         SelectForm lenguaje = new SelectForm("lenguaje");
         Opcion java = new Opcion("1", "Java");
-        lenguaje.addOpcion(java);
-        lenguaje.addOpcion(new Opcion("2","Python"));
-        lenguaje.addOpcion(new Opcion("3","JavaScript"));
-        lenguaje.addOpcion(new Opcion("4","TypeScript"));
-        lenguaje.addOpcion(new Opcion("5","PHP"));
+        lenguaje.addOpcion(java)
+        .addOpcion(new Opcion("2","Python"))
+        .addOpcion(new Opcion("3","JavaScript"))
+        .addOpcion(new Opcion("4","TypeScript"))
+        .addOpcion(new Opcion("5","PHP"));
 
         username.setValor("sebastian.abello");
         password.setValor("abc123");
@@ -34,17 +35,17 @@ public class EjemploForm {
         experiecia.setValor("...Mas de 10 años de experiencia...");
         java.setSelected(true);
 
-        List<ElementoForm> elementos = new ArrayList<>();
-        elementos.add(username);
-        elementos.add(password);
-        elementos.add(email);
-        elementos.add(edad);
-        elementos.add(experiecia);
-        elementos.add(lenguaje);
+        List<ElementoForm> elementos = Arrays.asList(username,
+                password,
+                email,
+                edad,
+                experiecia,
+                lenguaje);
 
-        for (ElementoForm e : elementos) {
+        elementos.forEach(e -> {
             System.out.println(e.dibujarHTML());
-        }
+            System.out.println("<br>");
+        });
 
 
     }
