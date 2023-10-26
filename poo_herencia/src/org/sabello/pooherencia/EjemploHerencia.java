@@ -34,7 +34,7 @@ public class EjemploHerencia {
                 + " " + alumno.getInstitucion());
         System.out.println(alumnoint.getNombre()
                 + " " + alumnoint.getApellido()
-                +" " + alumnoint.getPais());
+                + " " + alumnoint.getPais());
 
 
         System.out.println("Profesor " + profesor.getAsignatura()
@@ -43,7 +43,7 @@ public class EjemploHerencia {
 
 
         Class clase = alumnoint.getClass();
-        while(clase.getSuperclass() != null){
+        while (clase.getSuperclass() != null) {
             String hija = clase.getName();
             String padre = clase.getSuperclass().getName();
             System.out.println(hija + " Es una clase hija de la clase padre " + padre);
