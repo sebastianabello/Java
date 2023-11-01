@@ -36,5 +36,4 @@ public class Persona
     @Column(name = "clave")
     private String clave;
 
-
 }
